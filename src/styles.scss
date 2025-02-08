@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+@use "./scss/variables" as v;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: v.$Outfit;
+}
