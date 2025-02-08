@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
-
-
+import { LoginAndRegisterFormComponent } from './login-and-register-form/login-and-register-form.component';
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginAndRegisterFormComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +14,7 @@ import { AppRoutingModule } from '../app-routing.module';
     AppRoutingModule
   ],
   exports: [
-    LoginComponent
+    LoginAndRegisterFormComponent
   ]
 })
 export class ComponentsModule { }

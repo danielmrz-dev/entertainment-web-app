@@ -50,7 +50,23 @@
                 }
                 &:focus {
                     outline: none;
+                    border-bottom: 1px solid v.$White;
+                    caret-color: v.$Red;
                 }
+            }
+            input.invalid {
+                border-bottom: 1px solid v.$Red;
+            }
+        }
+        &-input-container {
+            position: relative;
+            .error {
+                position: absolute;
+                top: 7px;
+                right: 5px;
+                color: v.$Red;
+                font-weight: 200;
+                font-size: .8125rem;
             }
         }
         &-btns-container {
@@ -68,6 +84,11 @@
             border-radius: 6px;
             line-height: auto;
             cursor: pointer;
+            transition: background .3s ease, color .3s ease;
+            &:focus, &:hover {
+                background-color: v.$White;
+                color: v.$Semi-Dark-Blue;
+            }
         }
         &-sign-up-link {
             text-align: center;
