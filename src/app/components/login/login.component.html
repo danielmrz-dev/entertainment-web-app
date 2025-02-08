@@ -1,1 +1,25 @@
-<p>login works!</p>
+<section class="login">
+    <header class="login__header">
+        <img src="logo.svg" alt="">
+    </header>
+
+    <form class="login__form">
+        <h1 class="login__form-title">{{ isLoginPage ? "Login" : "Sign Up"}}</h1>
+        <div class="login__form-inputs">
+            <input type="email" placeholder="Email address">
+            <input type="password" placeholder="Password">
+            <input *ngIf="!isLoginPage" type="password" placeholder="Repeat Password">
+        </div>
+        <div class="login__form-btns-container">
+            <button class="login__form-submit-btn">
+                {{isLoginPage ? "Login to your account" : "Create an account"}}
+            </button>
+            <span class="login__form-sign-up-link">
+                {{isLoginPage ? "Don't have an account?" : "Already have an account?"}}
+                <a [routerLink]="isLoginPage ? '/': '/' ">
+                    {{isLoginPage ? "Sign up" : "Login"}}
+                </a>
+            </span>
+        </div>
+    </form>
+</section>
