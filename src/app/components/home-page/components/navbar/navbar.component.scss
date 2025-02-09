@@ -1,0 +1,38 @@
+@use "../../../../../scss/variables" as v;
+
+.header {
+    background-color: v.$Semi-Dark-Blue;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.125rem 1rem;
+    &__logo {
+        width: 25px;
+    }
+    &__navbar {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        &-item {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            &:focus > img, &:hover > img {
+                filter: brightness(3);
+            }
+            img {
+                transition: filter .3s ease;
+                width: 16px;
+            }
+        }
+    }
+    &__avatar {
+        width: 24px;
+        border: 1px solid v.$White;
+        border-radius: 50%;
+    }
+}
+
+.router-active {
+    filter: brightness(3);
+}

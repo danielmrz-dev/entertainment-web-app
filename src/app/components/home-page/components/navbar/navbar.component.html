@@ -1,0 +1,22 @@
+<header class="header">
+    <img src="logo.svg" alt="" class="header__logo">
+
+    <nav class="header__navbar">
+        <a routerLink="/browse" class="header__navbar-item">
+            <img src="icon-nav-home.svg" alt="" routerLinkActive="router-active" [routerLinkActiveOptions]="{ exact: true }">
+        </a>
+        <a routerLink="movies" class="header__navbar-item">
+            <img src="icon-nav-movies.svg" alt="" routerLinkActive="router-active">
+        </a>
+        <a routerLink="tv-series" class="header__navbar-item">
+            <img src="icon-nav-tv-series.svg" alt="" routerLinkActive="router-active">
+        </a>
+        <a routerLink="bookmark" class="header__navbar-item">
+            <img src="icon-nav-bookmark.svg" alt="" routerLinkActive="router-active">
+        </a>    
+    </nav>
+
+    <img src="image-avatar.png" alt="" class="header__avatar">
+
+</header>
+

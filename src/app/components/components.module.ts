@@ -4,11 +4,19 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
 import { LoginAndRegisterFormComponent } from './login-and-register-form/login-and-register-form.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { NavbarComponent } from './home-page/components/navbar/navbar.component';
+import { MoviesComponent } from './home-page/components/movies/movies.component';
+import { TvSeriesComponent } from './home-page/components/tv-series/tv-series.component';
+import { BookmarkComponent } from './home-page/components/bookmark/bookmark.component';
 
 @NgModule({
   declarations: [
     LoginAndRegisterFormComponent,
     HomePageComponent,
+    NavbarComponent,
+    MoviesComponent,
+    TvSeriesComponent,
+    BookmarkComponent,
   ],
   imports: [
     CommonModule,
@@ -16,7 +24,8 @@ import { HomePageComponent } from './home-page/home-page.component';
     AppRoutingModule
   ],
   exports: [
-    LoginAndRegisterFormComponent
+    LoginAndRegisterFormComponent,
+    HomePageComponent,
   ]
 })
 export class ComponentsModule { }
