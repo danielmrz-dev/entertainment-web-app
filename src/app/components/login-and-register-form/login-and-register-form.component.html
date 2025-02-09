@@ -21,13 +21,13 @@
         </div>
         <div class="login__form-btns-container">
             <button type="button" class="login__form-submit-btn" (click)="isLoginPage ? teste1() : teste2()">
-                {{isLoginPage ? "Login to your account" : "Create an account"}}
+                {{ isLoginPage ? "Login to your account" : "Create an account" }}
             </button>
             <span class="login__form-sign-up-link">
-                {{isLoginPage ? "Don't have an account?" : "Already have an account?"}}
+                {{ isLoginPage ? "Don't have an account?" : "Already have an account?" }}
                 <a 
                     [routerLink]="isLoginPage ? ['/register'] : ['/login'] ">
-                    {{isLoginPage ? "Sign up." : "Login."}}
+                    {{ isLoginPage ? "Sign up." : "Login." }}
                 </a>
             </span>
         </div>
