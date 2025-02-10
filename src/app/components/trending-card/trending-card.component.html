@@ -1,0 +1,22 @@
+<div class="trending-card">
+    <img src="thumbnails/beyond-earth/trending/small.jpg" alt="" class="trending-card__thumbnail">
+    <div class="trending-card__info">
+        <div class="trending-card__info-year-and-category">
+            <span class="trending-card__info-year">2019</span>
+            <span class="trending-card__info-category">
+                <img src="icon-category-movie.svg" alt="">
+                Movie
+            </span>
+        </div>
+        <strong class="trending-card__info-name">Beyond Earth</strong>
+        <span class="trending-card__info-age-rating">PG</span>
+    </div>
+    <button 
+        class="trending-card__bookmark-btn" 
+        [ngStyle]="{ 
+            'background-image': false ? 
+                'url(icon-bookmark-full.svg)' : 
+                'url(icon-bookmark-empty.svg)'
+        }">
+    </button>
+</div>

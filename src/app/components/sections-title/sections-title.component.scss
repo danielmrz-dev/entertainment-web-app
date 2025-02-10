@@ -1,0 +1,9 @@
+@use "../../../scss/variables" as v;
+
+.section-title {
+    color: v.$White;
+    font-size: 1.25rem;
+    font-weight: 300;
+    letter-spacing: -0.31px;
+    line-height: auto;
+}

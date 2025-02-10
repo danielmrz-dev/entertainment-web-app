@@ -5,6 +5,7 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { MoviesComponent } from './components/home-page/components/movies/movies.component';
 import { TvSeriesComponent } from './components/home-page/components/tv-series/tv-series.component';
 import { BookmarkComponent } from './components/home-page/components/bookmark/bookmark.component';
+import { BrowseComponent } from './components/home-page/components/browse/browse.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -22,6 +23,7 @@ const routes: Routes = [
     path: 'browse', 
     component: HomePageComponent,
     children: [
+      { path: '', component: BrowseComponent },
       { path: 'movies', component: MoviesComponent },
       { path: 'tv-series', component: TvSeriesComponent },
       { path: 'bookmark', component: BookmarkComponent },

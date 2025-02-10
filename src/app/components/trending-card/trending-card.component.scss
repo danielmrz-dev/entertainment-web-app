@@ -1,0 +1,67 @@
+@use "../../../scss/variables" as v;
+@use "../../../scss/mixins" as mix;
+
+.trending-card {
+    width: 240px;
+    height: 140px;
+    position: relative;
+    background: linear-gradient(to bottom, v.$White 50%, v.$Semi-Dark-Blue);
+    border-radius: 8px;
+    &__thumbnail {
+        border-radius: 8px;
+        max-width: 100%;
+        mix-blend-mode: multiply;
+    }
+    &__info {
+        position: absolute;
+        bottom: 0;
+        color: v.$White;
+        font-size: .75rem;
+        font-weight: 300;
+        display: grid;
+        align-items: center;
+        grid-template-columns: 1fr 45px;
+        gap: .25rem;
+        width: 100%;
+        padding: 1rem;
+        &-year-and-category:not(img) {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            opacity: .75;
+            font-weight: 200;
+        }
+        &-year {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            &::after {
+                content: '●';
+                font-size: 10px;
+            }
+        }
+        &-category {
+            display: flex;
+            align-items: center;
+            gap: .375rem;
+        }
+        &-name {
+            grid-area: 2;
+            font-size: 15px;
+            font-weight: 500;
+        }
+        &-age-rating {
+            grid-area: 1 / 2 / 3 / 3;
+            justify-self: flex-end;
+            background-color: #ffffff26;
+            font-size: 13px;
+            line-height: auto;
+            font-weight: 300;
+            padding:  .125rem .5rem;
+            border-radius: 10.5px;
+        }
+    }
+    &__bookmark-btn {
+        @include mix.bookmarkBtn();
+    }
+}

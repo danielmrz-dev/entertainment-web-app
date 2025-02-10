@@ -1,0 +1,23 @@
+@use "../../../scss/variables" as v;
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    &__input {
+        width: 100%;
+        padding: .125rem 0 .125rem 1rem;
+        border: none;
+        background-color: transparent;
+        font-size: 1rem;
+        font-weight: 300;
+        color: v.$White;
+        border-radius: 5px;
+        &:focus {
+            outline: none;
+        }
+    }
+    &__icon {
+        width: 24px;
+    }
+
+}

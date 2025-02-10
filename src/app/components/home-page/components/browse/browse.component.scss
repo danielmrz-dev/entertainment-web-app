@@ -1,0 +1,26 @@
+@use "../../../../../scss/variables" as v;
+
+.browse {
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    &__trending {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        scrollbar-width: none; // Firefox
+        -ms-overflow-style: none; // IE e Edge
+        &-cards {
+            display: flex;
+            gap: 1rem;
+            cursor: grab;
+        }
+    }
+}
+
+.swiper-slide-active {
+    max-width: 250px;
+}

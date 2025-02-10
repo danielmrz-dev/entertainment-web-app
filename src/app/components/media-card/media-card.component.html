@@ -1,0 +1,22 @@
+<div class="media-card">
+    <img src="thumbnails/the-great-lands/regular/small.jpg" alt="" class="media-card__thumbnail">
+    <div class="media-card__info">
+        <div class="media-card__info-year-and-category">
+            <span class="media-card__info-year">2019</span>
+            <span class="media-card__info-category">
+                <img src="icon-category-movie.svg" alt="">
+                Movie
+            </span>
+            <span class="media-card__info-age-rating">PG</span>
+        </div>
+        <strong class="media-card__info-name">The Great Lands</strong>
+    </div>
+    <button 
+        class="media-card__bookmark-btn"
+        [ngStyle]="{ 
+            'background-image': false ? 
+                'url(icon-bookmark-full.svg)' : 
+                'url(icon-bookmark-empty.svg)'
+        }">
+    </button>
+</div>

@@ -1,0 +1,57 @@
+@use "../../../scss/variables" as v;
+@use "../../../scss/mixins" as mix;
+
+.media-card {
+    width: 164px;
+    height: 110px;
+    position: relative;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    &__thumbnail {
+        border-radius: 8px;
+        max-width: 100%;
+    }
+    &__info {
+        color: v.$White;
+        font-size: .75rem;
+        font-weight: 300;
+        display: grid;
+        align-items: center;
+        gap: .25rem;
+        width: 100%;
+        &-year-and-category:not(img) {
+            display: flex;
+            align-items: center;
+            gap: .375rem;
+            opacity: .75;
+            font-weight: 200;
+            & > *:not(:last-child) {
+                &::after {
+                    content: '●';
+                    font-size: 7px;
+                    opacity: .7;
+                }            
+            }
+        }
+        &-year {
+            display: flex;
+            align-items: center;
+            gap: .375rem;
+        }
+        &-category {
+            display: flex;
+            align-items: center;
+            gap: .375rem;
+        }
+        &-name {
+            font-size: 15px;
+            font-weight: 500;
+        }
+    }
+    &__bookmark-btn {
+        @include mix.bookmarkBtn();
+    }
+}
+
