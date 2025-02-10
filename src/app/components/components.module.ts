@@ -13,6 +13,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { TrendingCardComponent } from './trending-card/trending-card.component';
 import { MediaCardComponent } from './media-card/media-card.component';
 import { SectionsTitleComponent } from './sections-title/sections-title.component';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [

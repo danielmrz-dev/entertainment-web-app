@@ -19,8 +19,9 @@
             cursor: grab;
         }
     }
+    &__recommended {
+        display: flex;
+        gap: .9375rem;
+        flex-wrap: wrap;
+    }
 }
-
-// .swiper-slide-active {
-//     min-width: 250px;
-// }
