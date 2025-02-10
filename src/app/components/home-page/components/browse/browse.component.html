@@ -3,16 +3,13 @@
 
     <div class="browse__trending">
         <app-sections-title title="Trending"></app-sections-title>
-        <!-- <div class="browse__trending-cards">
-            <app-trending-card></app-trending-card>
-            <app-trending-card></app-trending-card>
-            <app-trending-card></app-trending-card>
-            <app-trending-card></app-trending-card>
-            <app-trending-card></app-trending-card>
-            <app-trending-card></app-trending-card>
-            <app-trending-card></app-trending-card>
-        </div> -->
-        <swiper-container class="browse__swiper" loop="false" grab-cursor="true" slides-per-view="1">
+
+        <swiper-container 
+            #swiper
+            loop="true" 
+            grab-cursor="true"
+            init="false"
+            >
             <swiper-slide>
                 <app-trending-card></app-trending-card>
             </swiper-slide>
