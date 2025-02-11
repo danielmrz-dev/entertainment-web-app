@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IMedia } from '../../models/media/media.interface';
 
 @Component({
   selector: 'app-trending-card',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './trending-card.component.scss'
 })
 export class TrendingCardComponent {
+
+  @Input({ required: true }) media: IMedia = {} as IMedia;
 
 }

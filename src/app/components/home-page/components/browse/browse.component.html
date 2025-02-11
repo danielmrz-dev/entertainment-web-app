@@ -10,47 +10,8 @@
             grab-cursor="true"
             init="false"
             >
-            <swiper-slide>
-                <app-trending-card></app-trending-card>
-            </swiper-slide>
-            <swiper-slide>
-                <app-trending-card></app-trending-card>
-            </swiper-slide>
-            <swiper-slide>
-                <app-trending-card></app-trending-card>
-            </swiper-slide>
-            <swiper-slide>
-                <app-trending-card></app-trending-card>
-            </swiper-slide>
-            <swiper-slide>
-                <app-trending-card></app-trending-card>
-            </swiper-slide>
-            <swiper-slide>
-                <app-trending-card></app-trending-card>
-            </swiper-slide>
-            <swiper-slide>
-                <app-trending-card></app-trending-card>
-            </swiper-slide>
-            <swiper-slide>
-                <app-trending-card></app-trending-card>
-            </swiper-slide>
-            <swiper-slide>
-                <app-trending-card></app-trending-card>
-            </swiper-slide>
-            <swiper-slide>
-                <app-trending-card></app-trending-card>
-            </swiper-slide>
-            <swiper-slide>
-                <app-trending-card></app-trending-card>
-            </swiper-slide>
-            <swiper-slide>
-                <app-trending-card></app-trending-card>
-            </swiper-slide>
-            <swiper-slide>
-                <app-trending-card></app-trending-card>
-            </swiper-slide>
-            <swiper-slide>
-                <app-trending-card></app-trending-card>
+            <swiper-slide *ngFor="let media of trending$ | async">
+                <app-trending-card [media]="media"></app-trending-card>
             </swiper-slide>
         </swiper-container>
 
@@ -59,9 +20,6 @@
     <app-sections-title title="Recommended for you"></app-sections-title>
 
     <div class="browse__recommended">
-        <app-media-card></app-media-card>
-        <app-media-card></app-media-card>
-        <app-media-card></app-media-card>
-        <app-media-card></app-media-card>
+        <app-media-card *ngFor="let media of moviesAndSeries$ | async" [media]="media"></app-media-card>
     </div>
 </section>

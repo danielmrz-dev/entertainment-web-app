@@ -11,8 +11,8 @@
         gap: 1rem;
         overflow-x: scroll;
         overflow-y: hidden;
-        scrollbar-width: none; // Firefox
-        -ms-overflow-style: none; // IE e Edge
+        scrollbar-width: none;
+        -ms-overflow-style: none;
         &-cards {
             display: flex;
             gap: 1rem;

@@ -7,6 +7,7 @@
     position: relative;
     background: linear-gradient(to bottom, v.$White 50%, v.$Semi-Dark-Blue);
     border-radius: 8px;
+    overflow: hidden;
     &__thumbnail {
         border-radius: 8px;
         max-width: 100%;
