@@ -1,1 +1,20 @@
-<p>movies works!</p>
+<section class="movies">
+    <app-search-bar (emitSearchTerm)="filterMovies($event)"></app-search-bar>
+
+    <ng-container *ngIf="!thereAreFilteredMovies">
+        <app-sections-title title="Movies"></app-sections-title>
+    
+        <div class="movies__recommended">
+            <app-media-card *ngFor="let media of movies" [media]="media"></app-media-card>
+        </div>
+    </ng-container>
+    
+    <ng-container *ngIf="thereAreFilteredMovies">
+        <app-sections-title [title]="filteredTitle"></app-sections-title>
+        <div class="movies__recommended">
+            <app-media-card *ngFor="let media of filteredMovies" [media]="media"></app-media-card>
+        </div>        
+    </ng-container>
+    
+</section>
+

@@ -43,8 +43,6 @@ export class BrowseComponent implements OnInit, AfterViewInit {
 
   filterMoviesAndSeries(term: string) {
     if (term.length <= 0) {
-      this.filtered = [];
-      this.filteredTitle = '';
       this.thereAreFilteredItems = false;
       setTimeout(() => {
         initializeSwiper(this.swiperElement, this.swiperConfig)

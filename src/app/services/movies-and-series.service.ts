@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
-import { BehaviorSubject, map, take } from "rxjs";
+import { BehaviorSubject, map, pipe, take } from "rxjs";
 import { IMedia } from "../models/media/media.interface";
 
 @Injectable({
@@ -24,25 +24,18 @@ export class MoviesAndSeriesService {
     }
 
     addBookmarked(media: IMedia) {
-        this.mediaList$.pipe(
-            map((list) => {
-                if (!list.includes(media)) {
-                    list.push(media);
-                    this.mediaList.next(list);
-                }
-            })
-        )
+        this.mediaList$.pipe(take(1)).subscribe((list) => {
+            if (!list.some((item) => item.title === media.title)) {
+                const updatedList = [...list, media]
+                this.mediaList.next(updatedList);
+            }
+        })
     }
-
+    
     removeBookmarked(media: IMedia) {
-        this.mediaList$.pipe(
-            map((list) => {
-                const index = list.findIndex((item) => item === media);
-                if (index !== -1) {
-                    list.splice(index, 1);
-                    this.mediaList.next(list);
-                }
-            })
-        )
+        this.mediaList$.pipe(take(1)).subscribe((list) => {
+            const updatedList = list.filter((item) => item.title !== media.title);
+            this.mediaList.next(updatedList);
+        });
     }
 }

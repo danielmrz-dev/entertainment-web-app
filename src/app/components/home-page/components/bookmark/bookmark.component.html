@@ -1,1 +1,26 @@
-<p>bookmark works!</p>
+<section class="bookmarked">
+    <app-search-bar (emitSearchTerm)="filterBookmarked($event)"></app-search-bar>
+
+    <ng-container *ngIf="!thereAreFilteredBookmarked">
+        <app-sections-title title="Bookmarked Movies"></app-sections-title>
+    
+        <div class="bookmarked__recommended">
+            <app-media-card *ngFor="let media of bookmarkedMovies" [media]="media"></app-media-card>
+        </div>
+
+        <app-sections-title title="Bookmarked TV Series"></app-sections-title>
+    
+        <div class="bookmarked__recommended">
+            <app-media-card *ngFor="let media of bookmarkedTVSeries" [media]="media"></app-media-card>
+        </div>
+    </ng-container>
+    
+    <ng-container *ngIf="thereAreFilteredBookmarked">
+        <app-sections-title [title]="filteredTitle"></app-sections-title>
+        <div class="bookmarked__recommended">
+            <app-media-card *ngFor="let media of filteredBookmarked" [media]="media"></app-media-card>
+        </div>        
+    </ng-container>
+    
+</section>
+
