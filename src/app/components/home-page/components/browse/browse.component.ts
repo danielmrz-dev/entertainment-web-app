@@ -1,7 +1,7 @@
 import { Component, AfterViewInit, ViewChild, ElementRef, inject } from '@angular/core';
 import { IBreakpoint } from '../../../../models/breakpoint.interface';
 import { MoviesAndSeriesService } from '../../../../services/movies-and-series.service';
-import { Observable, of } from 'rxjs';
+import { map, Observable, of } from 'rxjs';
 import { IMedia } from '../../../../models/media/media.interface';
 
 @Component({
@@ -13,8 +13,8 @@ export class BrowseComponent implements AfterViewInit {
   
   @ViewChild('swiper', { static: false }) swiperElement?: ElementRef;
 
-  trending$: Observable<IMedia[]> = of();
-  moviesAndSeries$: Observable<IMedia[]> = of();
+  moviesAndSeries: IMedia[] = [];
+  trending: IMedia[] = [];
 
   private readonly _moviesAndSeriesService = inject(MoviesAndSeriesService);
 
@@ -25,8 +25,15 @@ export class BrowseComponent implements AfterViewInit {
   };
 
   ngOnInit(): void {
-    this.trending$ = this._moviesAndSeriesService.getTrending();
-    this.moviesAndSeries$ = this._moviesAndSeriesService.getMedia();
+    this._moviesAndSeriesService.mediaList$.subscribe({
+      next: (mediaList) => {
+        this.trending = mediaList.filter(media => media.isTrending);
+        this.moviesAndSeries = mediaList;
+      },
+      error: (error) => {}
+    })
+    // this.trending$ = this._moviesAndSeriesService.getTrending();
+    // this.moviesAndSeries$ = this._moviesAndSeriesService.getMedia();
   }
 
   ngAfterViewInit() {

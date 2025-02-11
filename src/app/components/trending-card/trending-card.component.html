@@ -12,6 +12,7 @@
         <span class="trending-card__info-age-rating">{{ media.rating }}</span>
     </div>
     <button 
+        (click)="bookmark(media)"
         class="trending-card__bookmark-btn" 
         [ngStyle]="{ 
             'background-image': media.isBookmarked ? 

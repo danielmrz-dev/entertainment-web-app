@@ -10,16 +10,14 @@ import { MoviesAndSeriesService } from '../../services/movies-and-series.service
 export class MediaCardComponent {
   @Input({ required: true }) media: IMedia = {} as IMedia;
 
-  private readonly mediasService = inject(MoviesAndSeriesService);
+  private readonly _moviesAndSeriesService = inject(MoviesAndSeriesService);
 
   bookmark(media: IMedia) {
     media.isBookmarked = !media.isBookmarked;
     if (media.isBookmarked) {
-      this.mediasService.addBookmarked(media);      
+      this._moviesAndSeriesService.addBookmarked(media);
     } else {
-      this.mediasService.removeBookmarked(media);
+      this._moviesAndSeriesService.removeBookmarked(media);
     }
-    console.log(this.mediasService.bookmarked);
-    
   }
 }
