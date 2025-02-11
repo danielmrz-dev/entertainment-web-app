@@ -1,25 +1,35 @@
 <section class="browse">
-    <app-search-bar></app-search-bar>
+    <app-search-bar (emitSearchTerm)="filterMoviesAndSeries($event)"></app-search-bar>
 
-    <div class="browse__trending">
-        <app-sections-title title="Trending"></app-sections-title>
-
-        <swiper-container 
-            #swiper
-            loop="false" 
-            grab-cursor="true"
-            init="false"
-            >
-            <swiper-slide *ngFor="let media of trending">
-                <app-trending-card [media]="media"></app-trending-card>
-            </swiper-slide>
-        </swiper-container>
-
-    </div>
-
-    <app-sections-title title="Recommended for you"></app-sections-title>
-
-    <div class="browse__recommended">
-        <app-media-card *ngFor="let media of moviesAndSeries" [media]="media"></app-media-card>
-    </div>
+    <ng-container *ngIf="!thereAreFilteredItems">
+        <div class="browse__trending">
+            <app-sections-title title="Trending"></app-sections-title>
+            
+            <swiper-container 
+                #swiper
+                loop="false" 
+                grab-cursor="true"
+                init="false"
+                >
+                <swiper-slide *ngFor="let media of trending">
+                    <app-trending-card [media]="media"></app-trending-card>
+                </swiper-slide>
+            </swiper-container>
+    
+        </div>
+    
+        <app-sections-title title="Recommended for you"></app-sections-title>
+    
+        <div class="browse__recommended">
+            <app-media-card *ngFor="let media of moviesAndSeries" [media]="media"></app-media-card>
+        </div>
+    </ng-container>
+    
+    <ng-container *ngIf="thereAreFilteredItems">
+        <app-sections-title [title]="filteredTitle"></app-sections-title>
+        <div class="browse__recommended">
+            <app-media-card *ngFor="let media of filtered" [media]="media"></app-media-card>
+        </div>        
+    </ng-container>
+    
 </section>

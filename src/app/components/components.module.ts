@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
 import { LoginAndRegisterFormComponent } from './login-and-register-form/login-and-register-form.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -13,7 +13,6 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { TrendingCardComponent } from './trending-card/trending-card.component';
 import { MediaCardComponent } from './media-card/media-card.component';
 import { SectionsTitleComponent } from './sections-title/sections-title.component';
-import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,6 +32,7 @@ import { provideHttpClient } from '@angular/common/http';
     CommonModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    FormsModule
   ],
   exports: [
     LoginAndRegisterFormComponent,

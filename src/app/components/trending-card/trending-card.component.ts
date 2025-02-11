@@ -11,7 +11,7 @@ export class TrendingCardComponent {
 
   @Input({ required: true }) media: IMedia = {} as IMedia;
 
-  private readonly _moviesAndSeriesService = inject(MoviesAndSeriesService)
+  private readonly _moviesAndSeriesService = inject(MoviesAndSeriesService);
 
   bookmark(media: IMedia) {
     media.isBookmarked = !media.isBookmarked;

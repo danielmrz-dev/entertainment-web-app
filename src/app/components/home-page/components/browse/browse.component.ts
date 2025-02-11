@@ -1,56 +1,62 @@
-import { Component, AfterViewInit, ViewChild, ElementRef, inject } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef, inject, OnInit } from '@angular/core';
 import { IBreakpoint } from '../../../../models/breakpoint.interface';
 import { MoviesAndSeriesService } from '../../../../services/movies-and-series.service';
-import { map, Observable, of } from 'rxjs';
 import { IMedia } from '../../../../models/media/media.interface';
+import { generateBreakpoints } from '../../../../utils/generate-breakpoints';
+import { ISwiperConfig } from '../../../../models/swiper-config.interface';
+import { initializeSwiper } from '../../../../utils/initialize-swiper';
 
 @Component({
   selector: 'app-browse',
   templateUrl: './browse.component.html',
   styleUrls: ['./browse.component.scss']
 })
-export class BrowseComponent implements AfterViewInit {
+export class BrowseComponent implements OnInit, AfterViewInit {
   
-  @ViewChild('swiper', { static: false }) swiperElement?: ElementRef;
+  @ViewChild('swiper') swiperElement!: ElementRef;
 
-  moviesAndSeries: IMedia[] = [];
   trending: IMedia[] = [];
-
-  private readonly _moviesAndSeriesService = inject(MoviesAndSeriesService);
-
-  swiperConfig = {
+  moviesAndSeries: IMedia[] = [];
+  filtered: IMedia[] = [];
+  filteredTitle: string = '';
+  thereAreFilteredItems: boolean = false;
+  swiperConfig: ISwiperConfig = {
     slidesPerView: 2,
     spaceBetween: 160,
-    breakpoints: this.generateBreakpoints(),
+    breakpoints: generateBreakpoints(),
   };
+
+  private readonly _moviesAndSeriesService = inject(MoviesAndSeriesService);
 
   ngOnInit(): void {
     this._moviesAndSeriesService.mediaList$.subscribe({
       next: (mediaList) => {
         this.trending = mediaList.filter(media => media.isTrending);
         this.moviesAndSeries = mediaList;
-      },
-      error: (error) => {}
+      }
     })
-    // this.trending$ = this._moviesAndSeriesService.getTrending();
-    // this.moviesAndSeries$ = this._moviesAndSeriesService.getMedia();
   }
-
+  
   ngAfterViewInit() {
-    if (this.swiperElement) {
-      Object.assign(this.swiperElement.nativeElement, this.swiperConfig);
-      this.swiperElement.nativeElement.initialize();
-    }
+    initializeSwiper(this.swiperElement, this.swiperConfig);
   }
 
-  private generateBreakpoints(): { [key: number]: { slidesPerView: number } } {
-    const breakpoints: IBreakpoint = {};
-    let slidesPerView = 2;
-    for (let i = 375; i <= 1440; i += 50) {
-      breakpoints[i] = { slidesPerView };
-      slidesPerView = Number((slidesPerView + 0.2).toFixed(1));
+  filterMoviesAndSeries(term: string) {
+    if (term.length <= 0) {
+      this.filtered = [];
+      this.filteredTitle = '';
+      this.thereAreFilteredItems = false;
+      setTimeout(() => {
+        initializeSwiper(this.swiperElement, this.swiperConfig)
+      });
+    } else {
+      this.thereAreFilteredItems = true;
+      this.filtered = this.moviesAndSeries.filter(
+        media => media.title.toLowerCase().includes(term.toLowerCase())
+      )
+      this.filteredTitle = `Found ${this.filtered.length} results for '${term}'`
     }
-    return breakpoints;
+    
   }
 
 }
