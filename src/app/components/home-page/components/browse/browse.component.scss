@@ -23,5 +23,20 @@
         display: flex;
         gap: .9375rem;
         flex-wrap: wrap;
+        justify-content: space-around;
     }
+}
+
+@media screen and (min-width: 768px) {
+    .browse {
+        padding: 1.5rem;
+        gap: 2.0625rem;
+        &__trending {
+            gap: 1.5625rem;
+        }
+        &__recommended {
+            gap: 1.8125rem;
+        }
+    }
+    
 }

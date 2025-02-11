@@ -54,3 +54,16 @@
     }
 }
 
+@media screen and (min-width: 768px) {
+    .media-card {
+        width: 220px;
+        gap: .5rem;
+        &__info {
+            font-size: .9375rem;
+            &-name {
+                font-size: 1.125rem;
+            }
+        }
+    }
+}
+

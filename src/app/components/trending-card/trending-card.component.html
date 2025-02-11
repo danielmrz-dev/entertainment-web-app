@@ -1,5 +1,8 @@
 <div class="trending-card">
-    <img [src]="media.thumbnail.regular.small" alt="" class="trending-card__thumbnail">
+    <picture>
+        <source media="(min-width: 768px)" [srcset]="media.thumbnail.trending?.large" type="image/png">
+        <img [src]="media.thumbnail.trending?.small" alt="" class="trending-card__thumbnail">
+    </picture>
     <div class="trending-card__info">
         <div class="trending-card__info-year-and-category">
             <span class="trending-card__info-year"> {{ media.year }} </span>

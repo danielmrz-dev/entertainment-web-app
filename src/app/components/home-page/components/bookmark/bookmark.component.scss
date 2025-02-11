@@ -9,5 +9,16 @@
         display: flex;
         gap: .9375rem;
         flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .bookmarked {
+        padding: 1.5rem;
+        gap: 2.0625rem;
+        &__recommended {
+            gap: 1.8125rem;
+        }
     }
 }

@@ -18,8 +18,8 @@ export class BookmarkComponent {
       private readonly _moviesAndSeriesService = inject(MoviesAndSeriesService);
     
       ngOnInit(): void {
-        this._moviesAndSeriesService.mediaList$.subscribe((mediaList) => {
-          this.bookmarked = mediaList.filter((media) => media.isBookmarked);
+        this._moviesAndSeriesService.bookmarkedItems$.subscribe((bookmarkedItems) => {
+          this.bookmarked = bookmarkedItems.filter((media) => media.isBookmarked);
           this.bookmarkedMovies = this.bookmarked.filter((item) => item.category === 'Movie');
           this.bookmarkedTVSeries = this.bookmarked.filter((item) => item.category === 'TV Series');
         })

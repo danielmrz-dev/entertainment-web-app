@@ -66,3 +66,30 @@
         @include mix.bookmarkBtn();
     }
 }
+
+@media (min-width: 768px) {
+    .trending-card {
+        width: 470px;
+        height: 230px;
+        &__info {
+            font-size: .9375rem;
+            padding: 1.5rem;
+            &-name {
+                grid-area: 2;
+                font-size: 1.5rem;
+                font-weight: 500;
+            }
+            &-age-rating {
+                font-size: .9375rem;
+                line-height: auto;
+                font-weight: 300;
+                padding:  .25rem .75rem;
+                border-radius: 15px;
+            }
+        }
+        &__bookmark-btn {
+            @include mix.bookmarkBtn();
+        }
+    }
+    
+}

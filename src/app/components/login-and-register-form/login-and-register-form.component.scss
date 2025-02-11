@@ -15,7 +15,8 @@
         }
     }
     &__form {
-        min-width: 100%;
+        width: 100%;
+        max-width: 400px;
         background-color: v.$Semi-Dark-Blue;
         padding: 1.5rem;
         border-radius: 10px;
@@ -102,6 +103,16 @@
                     text-decoration: underline;
                 }
             }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .login {
+        gap: 4.5rem;
+        padding: 5rem 1.5rem;
+        &__form {
+            padding: 2rem;
         }
     }
 }

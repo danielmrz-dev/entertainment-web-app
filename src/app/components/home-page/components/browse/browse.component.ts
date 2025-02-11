@@ -1,10 +1,10 @@
 import { Component, AfterViewInit, ViewChild, ElementRef, inject, OnInit } from '@angular/core';
-import { IBreakpoint } from '../../../../models/breakpoint.interface';
 import { MoviesAndSeriesService } from '../../../../services/movies-and-series.service';
 import { IMedia } from '../../../../models/media/media.interface';
 import { generateBreakpoints } from '../../../../utils/generate-breakpoints';
 import { ISwiperConfig } from '../../../../models/swiper-config.interface';
 import { initializeSwiper } from '../../../../utils/initialize-swiper';
+// import { generateSpaceBetweenTrendingCards } from '../../../../utils/generate-space-between-trending-cards';
 
 @Component({
   selector: 'app-browse',

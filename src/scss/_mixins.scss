@@ -6,7 +6,6 @@
     top: .5rem;
     right: .5rem;
     border: none;
-    // background: #0000004d url(../assets/icon-bookmark-empty.svg) center no-repeat;
     background-color: #0000004d;
     background-position: center;
     background-repeat: no-repeat;
@@ -16,4 +15,9 @@
     justify-content: center;
     transition: background .3s ease;
     cursor: pointer;
+    @media screen and (min-width: 768px) {
+        width: 32px;
+        top: 16px;
+        right: 24px;
+    }
 }
