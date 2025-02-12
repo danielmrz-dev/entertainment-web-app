@@ -1,4 +1,5 @@
 @use "../../../../../scss/variables" as v;
+@use "../../../../../scss/mixins" as mix;
 
 .header {
     background-color: v.$Semi-Dark-Blue;
@@ -14,16 +15,7 @@
         align-items: center;
         gap: 1.5rem;
         &-item {
-            width: 16px;
-            height: 16px;
-            cursor: pointer;
-            &:focus > img, &:hover > img {
-                filter: brightness(3);
-            }
-            img {
-                transition: filter .3s ease;
-                width: 16px;
-            }
+            @include mix.changeIconsColor();
         }
     }
     &__avatar {
@@ -34,7 +26,7 @@
 }
 
 .router-active {
-    filter: brightness(3);
+    filter: brightness(10);
 }
 
 @media screen and (min-width: 768px) {
@@ -47,13 +39,6 @@
         }
         &__navbar {
             gap: 2rem;
-            &-item {
-                width: 20px;
-                height: 20px;
-                img {
-                    width: 20px;
-                }
-            }
         }
         &__avatar {
             width: 32px;
@@ -62,7 +47,6 @@
         }
     }
 }
-
 
 @media screen and (min-width: 1024px) {
     .header {
@@ -73,26 +57,20 @@
         left: 0;
         top: 0;
         margin: 32px;
+        justify-content: start;
+        gap: 75px;
         &__logo {
             width: 32px;
         }
         &__navbar {
             gap: 2rem;
             flex-direction: column;
-            &-item {
-                width: 20px;
-                height: 20px;
-                img {
-                    width: 20px;
-                }
-            }
         }
         &__avatar {
             width: 32px;
             border: 1px solid v.$White;
             border-radius: 50%;
+            margin-top: auto;
         }
     }
 }
-
-

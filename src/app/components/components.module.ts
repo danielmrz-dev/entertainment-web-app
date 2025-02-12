@@ -13,6 +13,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { TrendingCardComponent } from './trending-card/trending-card.component';
 import { MediaCardComponent } from './media-card/media-card.component';
 import { SectionsTitleComponent } from './sections-title/sections-title.component';
+import { EmailValidatorDirective } from '../validators/email-validator.directive';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { SectionsTitleComponent } from './sections-title/sections-title.componen
     TrendingCardComponent,
     MediaCardComponent,
     SectionsTitleComponent,
+    EmailValidatorDirective
   ],
   imports: [
     CommonModule,

@@ -8,6 +8,22 @@
     display: flex;
     flex-direction: column;
     gap: .5rem;
+    &::after {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        inset: 0;
+        z-index: 0;
+        background-color: #ffffff00;
+        transition: background-color 0.3s;
+    }
+    &:hover::after {
+        background-color: #1111116f;
+    }
+    &:hover > &__play-btn {
+        opacity: 1;
+    }
     &__thumbnail {
         border-radius: 8px;
         max-width: 100%;
@@ -49,8 +65,12 @@
             font-weight: 500;
         }
     }
+    &__play-btn {
+        @include mix.playBtn(-85%);
+    }
     &__bookmark-btn {
         @include mix.bookmarkBtn();
+        z-index: 1;
     }
 }
 

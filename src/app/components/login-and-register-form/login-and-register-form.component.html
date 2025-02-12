@@ -3,24 +3,50 @@
         <img src="logo.svg" alt="">
     </header>
 
-    <form class="login__form">
+    <form class="login__form" [formGroup]="loginForm">
         <h1 class="login__form-title">{{ isLoginPage ? "Login" : "Sign Up"}}</h1>
         <div class="login__form-inputs">
+
             <div class="login__form-input-container">
-                <input type="email" [class.invalid]="false" placeholder="Email address">
-                <span class="error" *ngIf="false">Can't be empty</span>
+                <input 
+                    emailValidator 
+                    type="email" 
+                    [class.invalid]="email.touched && (email.hasError('required') || email.hasError('invalidEmailPattern'))" 
+                    placeholder="Email address" 
+                    formControlName="email">
+                <span class="error" *ngIf="email.touched && email.hasError('required')">Can't be empty</span>
+                <span class="error" *ngIf="!email.hasError('required') && email.hasError('invalidEmailPattern')">Invalid email</span>
             </div>
+
             <div class="login__form-input-container">
-                <input type="password" [class.invalid]="false" placeholder="Password">
-                <span class="error" *ngIf="false">Can't be empty</span>
+                <input 
+                    type="password" 
+                    [class.invalid]="password.touched && password.hasError('required')" 
+                    placeholder="Password" 
+                    formControlName="password">
+                <span class="error" *ngIf="password.touched && password.hasError('required')">Can't be empty</span>
             </div>
+
             <div class="login__form-input-container">
-                <input *ngIf="!isLoginPage" type="password" [class.invalid]="false" placeholder="Repeat Password">
-                <span class="error" *ngIf="false">Can't be empty</span>
+                <input 
+                    *ngIf="!isLoginPage" 
+                    type="password" 
+                    [class.invalid]="repeatPassword.touched && repeatPassword.hasError('required')"
+                    placeholder="Repeat Password" 
+                    formControlName="repeatPassword">
+                <span class="error" *ngIf="repeatPassword.touched && repeatPassword.hasError('required')">Can't be empty</span>
+                <span class="error" *ngIf="!repeatPassword.hasError('required') && password.value !== repeatPassword.value">Passwords don't match</span>
             </div>
         </div>
+
         <div class="login__form-btns-container">
-            <button routerLink="/browse" type="button" class="login__form-submit-btn" (click)="isLoginPage ? teste1() : teste2()">
+            <button 
+                routerLink="/browse" 
+                type="button" 
+                class="login__form-submit-btn"
+                [disabled]="(isLoginPage && (!email.valid || !password.valid)) || 
+                            (!isLoginPage) && (!email.valid || !password.valid || !repeatPassword.valid || password.value !== repeatPassword.value)"
+                (click)="isLoginPage ? login() : createAccount()">
                 {{ isLoginPage ? "Login to your account" : "Create an account" }}
             </button>
             <span class="login__form-sign-up-link">

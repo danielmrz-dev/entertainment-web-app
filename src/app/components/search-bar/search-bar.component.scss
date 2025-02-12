@@ -14,6 +14,7 @@
         border-radius: 5px;
         &:focus {
             outline: none;
+            caret-color: v.$Red;
         }
     }
     &__icon {

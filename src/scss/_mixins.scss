@@ -1,3 +1,4 @@
+@use './variables' as v;
 
 @mixin bookmarkBtn() {
     width: 32px;
@@ -19,5 +20,70 @@
         width: 32px;
         top: 16px;
         right: 24px;
+    }
+}
+
+@mixin playBtn($top) {
+    position: absolute;
+    filter: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, $top);
+    display: flex;
+    align-items: center;
+    gap: 1.1875rem;
+    padding: .5625rem 1.5rem .5625rem .5625rem;
+    z-index: 99;
+    background-color: v.$White-Opaque;
+    color: v.$White;
+    font-size: 1.125rem;
+    border: none;
+    border-radius: 1.7813rem;
+    opacity: 0;
+    transition: opacity .3s ease;
+    cursor: pointer;
+}
+
+@mixin changeIconsColor() {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    background-image: url(../assets/icon-nav-home.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: background .3s ease;
+    &:nth-child(2) {
+        background-image: url(../assets/icon-nav-movies.svg);
+    }
+    &:nth-child(3) {
+        background-image: url(../assets/icon-nav-tv-series.svg);
+    }
+    &:nth-child(4) {
+        background-image: url(../assets/icon-nav-bookmark.svg);
+    }
+    &:focus, &:hover {
+        background-image: url(../assets/icon-nav-home-red.svg);
+        &:nth-child(2) {
+            background-image: url(../assets/icon-nav-movies-red.svg);
+        }
+        &:nth-child(3) {
+            background-image: url(../assets/icon-nav-tv-series-red.svg);
+        }
+        &:nth-child(4) {
+            background-image: url(../assets/icon-nav-bookmark-red.svg);
+        }
+    }
+    img {
+        transition: filter .3s ease;
+        width: 16px;
+        opacity: 0;
+    }
+    @media screen and (min-width: 768px) {
+        width: 20px;
+        height: 20px;
+        img {
+            width: 20px;
+        }
     }
 }

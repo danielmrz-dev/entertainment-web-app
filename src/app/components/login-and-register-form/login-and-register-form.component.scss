@@ -86,9 +86,13 @@
             line-height: auto;
             cursor: pointer;
             transition: background .3s ease, color .3s ease;
-            &:focus, &:hover {
+            &:focus:not(:disabled), &:hover:not(:disabled) {
                 background-color: v.$White;
                 color: v.$Semi-Dark-Blue;
+            }
+            &:disabled {
+                opacity: .5;
+                cursor: not-allowed;
             }
         }
         &-sign-up-link {
