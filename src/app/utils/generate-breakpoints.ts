@@ -4,7 +4,7 @@ export function generateBreakpoints(): IBreakpoint {
     const breakpoints: IBreakpoint = {};
     let slidesPerView = 2;
     let slidesPerViewTablet = 1.8;
-    let slidesPerViewDesktop = 2.25;
+    let slidesPerViewDesktop = 2;
 
     for (let i = 375; i <= 1440; i += 50) {
         if (i < 768) {
@@ -15,7 +15,7 @@ export function generateBreakpoints(): IBreakpoint {
             slidesPerViewTablet = Number((slidesPerViewTablet + 0.1).toFixed(1));
         } else {
             breakpoints[i] = { slidesPerView: slidesPerViewDesktop };
-            slidesPerViewDesktop = Number((slidesPerViewDesktop + 0.15).toFixed(1));
+            slidesPerViewDesktop = Number((slidesPerViewDesktop + 0.065).toFixed(1));
         }
     }
     

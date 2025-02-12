@@ -26,7 +26,6 @@ export class MoviesAndSeriesService {
             this.mediaList.next(list);
             const bookmarked = list.filter(item => item.isBookmarked)
             this.bookmarkedItems.next(bookmarked);
-            console.log(this.bookmarkedItems);            
         });
     }
 
