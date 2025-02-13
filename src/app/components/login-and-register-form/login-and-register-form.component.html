@@ -36,18 +36,45 @@
                     formControlName="repeatPassword">
                 <span class="error" *ngIf="repeatPassword.touched && repeatPassword.hasError('required')">Can't be empty</span>
                 <span class="error" *ngIf="!repeatPassword.hasError('required') && password.value !== repeatPassword.value">Passwords don't match</span>
+                <span 
+                    class="login__form-invalid" 
+                    *ngIf="loginForm.hasError('invalidCredentials')">
+                        <img src="error.svg" alt="">
+                        User not registered. Please sign up first.
+                </span>
+                <span 
+                    class="login__form-invalid" 
+                    *ngIf="loginForm.hasError('generalError')">
+                        <img src="error.svg" alt="">
+                        An error has occurred. Please try again later.
+                </span>
+                <span 
+                    class="login__form-invalid" 
+                    *ngIf="!isLoginPage && loginForm.hasError('userAlreadyExists')">
+                        <img src="error.svg" alt="">
+                        This email is already in use.
+                </span>
             </div>
         </div>
 
         <div class="login__form-btns-container">
             <button 
-                routerLink="/browse" 
                 type="button" 
                 class="login__form-submit-btn"
                 [disabled]="(isLoginPage && (!email.valid || !password.valid)) || 
                             (!isLoginPage) && (!email.valid || !password.valid || !repeatPassword.valid || password.value !== repeatPassword.value)"
                 (click)="isLoginPage ? login() : createAccount()">
-                {{ isLoginPage ? "Login to your account" : "Create an account" }}
+                <ng-container *ngIf="!(_loadingService.loading$ | async); else spinner">
+                    {{ isLoginPage ? "Login to your account" : "Create an account" }}
+                </ng-container>
+                <ng-template #spinner>
+                    <div class="spinner">
+                        <ngx-spinner
+                            bdColor="transparent" size="small" color="#161D2F" type="ball-pulse" [fullScreen]="false">
+                        </ngx-spinner>
+                    </div>
+                </ng-template>
+
             </button>
             <span class="login__form-sign-up-link">
                 {{ isLoginPage ? "Don't have an account?" : "Already have an account?" }}

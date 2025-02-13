@@ -14,6 +14,8 @@ import { TrendingCardComponent } from './trending-card/trending-card.component';
 import { MediaCardComponent } from './media-card/media-card.component';
 import { SectionsTitleComponent } from './sections-title/sections-title.component';
 import { EmailValidatorDirective } from '../validators/email-validator.directive';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { EmailValidatorDirective } from '../validators/email-validator.directive
     CommonModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule
   ],
   exports: [
     LoginAndRegisterFormComponent,
