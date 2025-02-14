@@ -43,6 +43,7 @@ Users should be able to:
 
 - Angular
 - TypeScript
+- Angular Material
 - SASS
 - SwiperJS
 - Ngx Spinner
