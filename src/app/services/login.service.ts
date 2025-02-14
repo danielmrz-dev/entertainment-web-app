@@ -1,11 +1,14 @@
 import { HttpClient, HttpEvent, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
+
+  isLoggedSubject = new BehaviorSubject<boolean>(false);
+  isLogged$ = this.isLoggedSubject.asObservable();
 
   private readonly api = "https://entertainment-web-app-backend-ytl3.onrender.com"
   private readonly _http = inject(HttpClient);

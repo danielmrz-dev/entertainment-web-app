@@ -51,6 +51,7 @@ export class LoginAndRegisterFormComponent {
   login() {
     this._loginService.login(this.email.value, this.password.value).subscribe({
       next: () => {
+        this._loginService.isLoggedSubject.next(true);
         this._router.navigate(['/browse']);
       },
       error: (error: HttpErrorResponse) => {

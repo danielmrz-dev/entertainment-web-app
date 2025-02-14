@@ -6,6 +6,7 @@ import { MoviesComponent } from './components/home-page/components/movies/movies
 import { TvSeriesComponent } from './components/home-page/components/tv-series/tv-series.component';
 import { BookmarkComponent } from './components/home-page/components/bookmark/bookmark.component';
 import { BrowseComponent } from './components/home-page/components/browse/browse.component';
+import { innerRoutesGuard } from './guards/inner-routes.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { 
     path: 'browse', 
     component: HomePageComponent,
+    canActivate: [innerRoutesGuard],
     children: [
       { path: '', component: BrowseComponent },
       { path: 'movies', component: MoviesComponent },
@@ -29,6 +31,7 @@ const routes: Routes = [
       { path: 'bookmark', component: BookmarkComponent },
     ],
   },
+  { path: "**", redirectTo: '/login', pathMatch: 'full' }
 ];
 
 @NgModule({
