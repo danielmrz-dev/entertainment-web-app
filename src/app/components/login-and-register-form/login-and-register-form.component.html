@@ -4,7 +4,7 @@
     </header>
 
     <form class="login__form" [formGroup]="loginForm">
-        <span class="login__form-login-info" [matTooltip]="tooltipMessage">
+        <span class="login__form-login-info" [matTooltip]="tooltipMessage" #tooltip="matTooltip" (click)="tooltip.toggle()">
             <img src="circle-question-regular.svg" alt="">
         </span>
 
