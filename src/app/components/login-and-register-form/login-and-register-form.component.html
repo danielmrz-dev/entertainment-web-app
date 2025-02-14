@@ -4,6 +4,10 @@
     </header>
 
     <form class="login__form" [formGroup]="loginForm">
+        <span class="login__form-login-info" [matTooltip]="tooltipMessage">
+            <img src="circle-question-regular.svg" alt="">
+        </span>
+
         <h1 class="login__form-title">{{ isLoginPage ? "Login" : "Sign Up"}}</h1>
         <div class="login__form-inputs">
 

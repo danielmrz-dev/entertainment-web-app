@@ -24,6 +24,15 @@
         flex-direction: column;
         gap: 2.5rem;
         position: relative;
+        &-login-info {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            img {
+                width: 22px;
+            }
+        }
         &-title {
             font-size: 2rem;
             letter-spacing: -0.5px;

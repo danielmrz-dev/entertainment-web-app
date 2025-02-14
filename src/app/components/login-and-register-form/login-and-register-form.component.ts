@@ -15,8 +15,10 @@ import { DialogComponent } from '../dialog/dialog.component';
   styleUrl: './login-and-register-form.component.scss'
 })
 export class LoginAndRegisterFormComponent {
+
   isLoginPage: boolean = true;
   loginForm!: FormGroup;
+  tooltipMessage: string = `Please use ⬇️\n\nEmail: user@user.com \n Password: user123\n\nOr create an account.\n\nYour data is automatically\ndeleted after a few hours.`;
 
   private readonly _activatedRoute = inject(ActivatedRoute);
   private readonly _fb = inject(FormBuilder);
