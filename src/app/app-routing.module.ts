@@ -10,7 +10,7 @@ import { innerRoutesGuard } from './guards/inner-routes.guard';
 import { authGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'browse', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { 
     path: 'login', 
     component: LoginAndRegisterFormComponent, 
@@ -24,8 +24,8 @@ const routes: Routes = [
   { 
     path: 'browse', 
     component: HomePageComponent,
-    // canActivate: [innerRoutesGuard],
-    // canActivateChild: [authGuard],
+    canActivate: [innerRoutesGuard],
+    canActivateChild: [authGuard],
     children: [
       { path: '', component: BrowseComponent },
       { path: 'movies', component: MoviesComponent },
