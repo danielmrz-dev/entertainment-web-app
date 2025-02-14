@@ -7,6 +7,7 @@ import { TvSeriesComponent } from './components/home-page/components/tv-series/t
 import { BookmarkComponent } from './components/home-page/components/bookmark/bookmark.component';
 import { BrowseComponent } from './components/home-page/components/browse/browse.component';
 import { innerRoutesGuard } from './guards/inner-routes.guard';
+import { authGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -24,6 +25,7 @@ const routes: Routes = [
     path: 'browse', 
     component: HomePageComponent,
     canActivate: [innerRoutesGuard],
+    canActivateChild: [authGuard],
     children: [
       { path: '', component: BrowseComponent },
       { path: 'movies', component: MoviesComponent },

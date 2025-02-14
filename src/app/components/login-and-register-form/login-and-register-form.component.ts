@@ -30,8 +30,8 @@ export class LoginAndRegisterFormComponent {
       this.isLoginPage = value['isLoginPage'];
     })
     this.loginForm = this._fb.group({
-      email: this._fb.control('', { validators: [Validators.required], updateOn: 'blur' }),
-      password: this._fb.control('', [Validators.required]),
+      email: this._fb.control('user@user.com', { validators: [Validators.required], updateOn: 'blur' }),
+      password: this._fb.control('user123', [Validators.required]),
       repeatPassword: this._fb.control('', [Validators.required]),
     })
   }
