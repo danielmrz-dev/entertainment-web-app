@@ -1,4 +1,5 @@
 @use "./scss/variables" as v;
+@use "./scss/angular-material";
 
 * {
     margin: 0;
@@ -10,3 +11,5 @@
 body {
     background-color: v.$Dark-Blue;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

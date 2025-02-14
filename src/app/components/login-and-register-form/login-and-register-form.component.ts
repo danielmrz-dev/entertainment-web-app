@@ -5,6 +5,8 @@ import { LoginService } from '../../services/login.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { LoadingService } from '../../services/loading.service';
 import { NgxSpinnerService } from "ngx-spinner";
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
 
 
 @Component({
@@ -13,7 +15,6 @@ import { NgxSpinnerService } from "ngx-spinner";
   styleUrl: './login-and-register-form.component.scss'
 })
 export class LoginAndRegisterFormComponent {
-
   isLoginPage: boolean = true;
   loginForm!: FormGroup;
 
@@ -23,6 +24,7 @@ export class LoginAndRegisterFormComponent {
   private readonly _router = inject(Router);
   readonly _loadingService = inject(LoadingService);
   private spinner = inject(NgxSpinnerService);
+  private readonly dialog = inject(MatDialog)
 
   ngOnInit(): void {
     this.spinner.show();
@@ -67,6 +69,7 @@ export class LoginAndRegisterFormComponent {
   createAccount() {
     this._loginService.createAccount(this.email.value, this.password.value).subscribe({
       next: () => {
+        this.dialog.open(DialogComponent);
         this._router.navigate(['/login']);
       },
       error: () => {

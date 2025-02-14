@@ -59,7 +59,7 @@
 
         <div class="login__form-btns-container">
             <button 
-                type="button" 
+                type="submit"
                 class="login__form-submit-btn"
                 [disabled]="(isLoginPage && (!email.valid || !password.valid)) || 
                             (!isLoginPage) && (!email.valid || !password.valid || !repeatPassword.valid || password.value !== repeatPassword.value)"

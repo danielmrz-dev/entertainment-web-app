@@ -16,6 +16,10 @@ import { SectionsTitleComponent } from './sections-title/sections-title.componen
 import { EmailValidatorDirective } from '../validators/email-validator.directive';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DialogComponent } from './dialog/dialog.component';
+import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogModule, MatDialogTitle } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +34,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TrendingCardComponent,
     MediaCardComponent,
     SectionsTitleComponent,
-    EmailValidatorDirective
+    EmailValidatorDirective,
+    DialogComponent,
   ],
   imports: [
     CommonModule,
@@ -38,7 +43,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     FormsModule,
     NgxSpinnerModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatDialogContent,
+    MatDialogTitle,
+    MatDialogClose, 
+    MatDialogActions,
+    MatButtonModule
   ],
   exports: [
     LoginAndRegisterFormComponent,

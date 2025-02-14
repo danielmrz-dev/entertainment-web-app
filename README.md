@@ -32,8 +32,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Link](https://your-solution-url.com)
-- Live Site URL: [Link](https://your-live-site-url.com)
+- Solution URL: [Link](https://www.frontendmentor.io/solutions/entertainment-web-app-built-w-angular-expressnodejs-ryFfV7VTm1)
+- Live Site URL: [Link](https://entertainment-web-app-self-three.vercel.app/)
 
 ## My process
 

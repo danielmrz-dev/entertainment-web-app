@@ -1,0 +1,13 @@
+@use "./variables" as v;
+
+.mdc-dialog .mat-mdc-dialog-surface {
+    background: v.$Semi-Light-Dark-Blue;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+}
+
+.mat-mdc-raised-button:not(:disabled) {
+    color: v.$White !important;
+    background: v.$Red !important;
+}
