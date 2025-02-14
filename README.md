@@ -60,6 +60,7 @@ Available at this [link](https://gitlab.com/danielmrz.dev/entertainment-web-app-
 
 ## Author
 
-- Portfolio - [Link](https://www.your-site.com)
+- LinkedIn - [@danielmrz-dev](https://www.linkedin.com/in/danielmrz-dev/)
 - Frontend Mentor - [@danielmrz-dev](https://www.frontendmentor.io/profile/danielmrz-dev)
 - Twitter - [@danielmrz_dev](https://www.twitter.com/danielmrz_dev)
+- My portfolio - [Link](https://danielmrz-portfolio.vercel.app/)
