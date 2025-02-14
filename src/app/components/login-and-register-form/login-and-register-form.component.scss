@@ -109,7 +109,7 @@
             line-height: auto;
             cursor: pointer;
             transition: background .3s ease, color .3s ease;
-            &:focus:not(:disabled), &:hover:not(:disabled) {
+            &:focus-visible:not(:disabled), &:hover:not(:disabled) {
                 background-color: v.$White;
                 color: v.$Semi-Dark-Blue;
             }
